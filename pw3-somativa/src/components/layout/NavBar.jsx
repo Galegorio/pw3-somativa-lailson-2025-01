@@ -3,11 +3,11 @@ import style from "./NavBar.module.css"
 
 const NavBar = ()=>{
     return(
-        <nav>
-            <ul>
-                <li>HOME</li>
-                <li>CADASTRAR LIVROS</li>
-                <li>LISTAR LIVROS</li>
+        <nav className={style.navbar}>
+            <ul className={style.list}>
+                <li className={style.item}>HOME</li>
+                <li className={style.item}>CADASTRAR LIVROS</li>
+                <li className={style.item}>LISTAR LIVROS</li>
             </ul>
         </nav>
     )
