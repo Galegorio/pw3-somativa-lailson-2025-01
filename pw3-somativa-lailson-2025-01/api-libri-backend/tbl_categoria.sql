@@ -1,0 +1,1 @@
+SELECT * FROM bd_libri_api.tbl_categoria;
