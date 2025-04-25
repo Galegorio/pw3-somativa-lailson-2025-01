@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./createBook.module.css";
 import { useState, useEffect } from "react";
+import {useNavigate} from "react-router-dom";
 import Input from "../form/Input.jsx";
 import Select from "../form/Select.jsx";
 import Button from "../form/Button.jsx";
@@ -13,7 +14,10 @@ const CreateBook = () => {
     /* CRIA A ESTRUTURA DE STATE PARA OS DADOS DE CATEGORIA*/
     const[categories, setCategories] = useState([]);
 
-     // captura de dados dos elementos de input
+    // Cria um Objeto useNavigate 
+    const navigate = useNavigate();
+
+    // captura de dados dos elementos de input
     function handlerChangeBook(event){
         setBook({...book, [event.target.name] : event.target.value });
         console.log(book);
@@ -50,7 +54,7 @@ const CreateBook = () => {
     }, []);
     // INSERÇÂO DE LIVRO
     function insertBook(book){
-        fetch('http://127.0.0.1:5000/inserirLivro', {
+        fetch('http://127.0.0.1:5000/inserirLivro', { 
             method: 'POST',
             mode:'cors',
             headers:{
@@ -63,6 +67,7 @@ const CreateBook = () => {
             resp.json()
         ).then((respJSON)=>{
             console.log('RESPOSTA: ' + respJSON);
+            navigate('/listBook');
         }).catch((error)=>{
             console.log('ERRO: ' + error);
         })

@@ -51,6 +51,6 @@ modeLivro.belongsTo(modelCategoria, {
     sourceKey: 'cod_categoria'
 });
 
-modeLivro.sync({force:true});
+// modeLivro.sync({force:true});
 
 module.exports = modeLivro;
